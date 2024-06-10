@@ -48,6 +48,10 @@ public class App {
                     resultadoDivisao = (double) primeiro / (double) segundo;
                     System.out.println("A divisão de "+primeiro+" / "+segundo+ " é igual a \n" + resultadoDivisao  );
                     break;
+                case 5:
+                    resultado = (int) Math.pow(primeiro, segundo);
+                    System.out.println(resultado);
+                    break;   
                 case 0:
                     System.out.println("Encerrando");
                     break;
