@@ -7,10 +7,8 @@ public class App {
         int resultado  = 0;
         double resultadoDivisao;
 
-        
         Scanner entrada = new Scanner(System.in);
              
-
         int opcao = -1;
 
         while (opcao != 0) {
