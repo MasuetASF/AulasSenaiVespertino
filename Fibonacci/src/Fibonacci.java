@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Fibonacci {
 
     public static long fib(int numero){
@@ -50,58 +52,64 @@ public class Fibonacci {
             return vetRec(numero - 1);
         }
     }
-
-
-    //TODO
-    // inverter o vetor
-    // public static int inverteVetor (int[] numero){
-        
-    //     for (int i = 0; i < numero.length; i++) {
-    //             System.out.println(numero[i]);
-    //         }
-    //     System.out.println("Agora a ordem invertida");
-    //     for (int j = numero.length - 1; j >= 0; j--) {
-    //             System.out.println(numero[j]);
-    //     }
-    //     return System.out.println(numero[j]);
-
-    // }
         
 
     public static void main(String[] args) throws Exception {
-        // 0 1 1 2 3 5 8 13 21 34 55 89 144...
-        System.out.println("Calculando de maneira interativa");
-
-        for(int i = 0; i < 10; i++){
-            System.out.println("("+i+"): " + Fibonacci.fib(i) + "\t" );
-        }
-
-        System.out.println("Recursiva 01");
-
-        for(int i = 0; i < 10; i++){
-            System.out.println("("+i+"): " + Fibonacci.fibRec(i) + "\t" );
-        }
-
-        System.out.println("Recursiva 02 - Operador ternário");
-
-        for(int i = 0; i < 10; i++){
-            System.out.println("("+i+"): " + Fibonacci.fibTer(i) + "\t" );
-        }
-
-        System.out.println("Recursiva 03 - Vetor");
-
-        for(int i = 0; i < 10; i++){
-            System.out.println("("+i+"): " + Fibonacci.fibVetor(i) + "\t" );
-        }
-
-        System.out.println("Esse é o elementeo na posição 04: " +vetor[2]);
-
-
         
-        //TODO
-        //Criar menu com switch indicando qual tipo de metodo de fibonacci o usuário quer
+        Scanner entrada = new Scanner(System.in);
+        int opcao = -1;
+        int tamanhoVet = 0;
         
-        
+        while (opcao != 0) {
 
-    }
+        System.out.println("Insira um opcão ");
+        System.out.println("1 - Maneira interativa");
+        System.out.println("2 - Recursiva 01");
+        System.out.println("3 - Recursiva 02 - Operador ternário");
+        System.out.println("4 - Recursiva 03 - Vetor");
+        System.err.println("0 - Sair");
+        opcao = entrada.nextInt();
+
+        if (opcao != 0) {
+            System.out.println("Informe o tamanho do Vetor");
+            tamanhoVet = entrada.nextInt();
+        }
+            switch (opcao) {
+                case 1:
+                    // 0 1 1 2 3 5 8 13 21 34 55 89 144...
+                    System.out.println("Calculando de maneira interativa");
+                    for(int i = 0; i < tamanhoVet; i++){
+                        System.out.println("("+i+"): " + Fibonacci.fib(i) + "\t" );
+                    }   
+                    break;
+                case 2:
+                    System.out.println("Recursiva 01");
+                    for(int i = 0; i < tamanhoVet; i++){
+                        System.out.println("("+i+"): " + Fibonacci.fibRec(i) + "\t" );
+                    }
+                    break;
+                case 3:
+                    System.out.println("Recursiva 02 - Operador ternário");
+    
+                    for(int i = 0; i < tamanhoVet; i++){
+                        System.out.println("("+i+"): " + Fibonacci.fibTer(i) + "\t" );
+                    }
+                    break;
+                case 4:
+                    System.out.println("Recursiva 03 - Vetor");
+                    for(int i = 0; i < tamanhoVet; i++){
+                        System.out.println("("+i+"): " + Fibonacci.fibVetor(i) + "\t" );
+                    }
+                    break;
+                case 0:
+                    System.out.println("Encerrando...");
+                    break;   
+                default:
+                    break;
+            }//end switch
+        }//end while
+        
+        entrada.close();        
+
+    }//end main
 }
