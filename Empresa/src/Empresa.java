@@ -66,5 +66,11 @@ public class Empresa {
         System.out.println("\n Realizar reunião:");
         System.out.println("Reunião realizada ? " + gerente1.realizarReuniao(true, secreatario1.getStatusReuniao()));
 
+
+        // TODO 
+        // adicionar classe de cliete
+        // comprou alguma coisa
+        // se ligou
+        // com quem comprou
     }
 }
