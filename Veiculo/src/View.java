@@ -14,10 +14,17 @@ public class View {
         //System.out.println(carro.getVelocidade());
 
         Moto moto = new Moto();
+        moto.setNome("Moto");
+        moto.setModelo("Cg Fan");
+        moto.setQuantidadeDePneus(2);
+        moto.setCilindradas(125);
+        moto.setVelocidade(0);
+
+
 
         Caminhao caminhao = new Caminhao();
-        caminhao.setNome("Caminhão");
-        caminhao.setModelo("Volvo f445");
+        caminhao.setNome("Caminhao");
+        caminhao.setModelo("Volvo");
         caminhao.setQuantidadeDePneus(12);
         caminhao.setEixos(3);
         caminhao.setCacamba(false);
