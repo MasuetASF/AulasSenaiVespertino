@@ -1,7 +1,6 @@
 package controle;
 
 import java.text.SimpleDateFormat;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class Peta extends Produto {
@@ -41,4 +40,8 @@ public class Peta extends Produto {
     //criar dois produtos que utilizem o metodo de validade com sobescrita, 
     //sendo que o metodo recebera a data da fabricação, data de validade e data
     // de validade apos aberto.
+
+    // o produto sta com a validade dentro do prazo ? 
+    //quanto tempo falta para o produto vencer
+    // 
 }

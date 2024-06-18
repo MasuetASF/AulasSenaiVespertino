@@ -1,6 +1,8 @@
 package controle;
 
 import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class App {
@@ -12,13 +14,26 @@ public class App {
         l.setValor(12.21);
 
         Calendar c  = Calendar.getInstance();
-        Date data = c.getTime();
+       
+        Date data2 = c.getTime();
+        
+        
+        LocalDate dataFabricacao = LocalDate.of(2024,7,19);
+        LocalDate dataVencimento = LocalDate.of(2024,7,22);
 
-        System.out.println(data);
-        System.out.println(l.validade(data)); 
+        Arroz arroz = new Arroz();
+
+        System.out.println("Hoje "+dataFabricacao);
+        System.out.println("DataVencimento"+dataVencimento);
+
+        System.out.println(arroz.validade(dataVencimento));
+
+        System.out.println("Faltam "+arroz.validade(dataFabricacao,dataVencimento)+" para o vencimento do produto");
 
 
+        
 
+        
 
     }
 }
