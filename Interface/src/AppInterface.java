@@ -1,7 +1,7 @@
 import automovel.Carro;
 import automovel.Veiculo;
 
-class App {
+class AppInterface {
 
 
     //Classe generica do tipo veiculo que ja chama o metodo ligar
@@ -19,7 +19,7 @@ class App {
         //com o objeto criado, setamos o parametro e o metodo ligarMotor
         // executa o metodo ligar() que foi implementado na classe Carro
         // retornando a instrução "Ligando o carro";
-        App.ligarMotor(corsa);
+        AppInterface.ligarMotor(corsa);
     }
     
 }
