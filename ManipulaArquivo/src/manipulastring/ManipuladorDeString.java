@@ -2,54 +2,80 @@ package manipulastring;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.Vector;
 
 public class ManipuladorDeString {
     
-    public static void leitura (String caminho){
+
+    /*
+        Este método tem como finalidade ler um arquivo, criar um conjunto de vetores com o métoto split()
+        para extrair 2 números inteiros e manipulá-los, a fim de criar um arquivo.txt de uma calculadora de multiplicação. 
+    */
+
+    public static void leitura (String caminho) throws IOException{
+        //FileReader: permite que aplicativos da web leiam de forma assíncrona o conteúdo de arquivos (ou buffers de dados brutos) armazenados no computador do usuário.
         FileReader fr;
-        try {
+
+
+            //Como o método split() cria conjuntos de vetores, criando um vetor do tipo inteiro para fazer a conversão (FileReader retorna sempre uma String)
+            Vector<Integer> vetor = new Vector<>();
+
+            //Criamos uma váriavel auxiliar para utilizarmos o método split().
+            String[] auxiliar = new String[3];
+
+            
+            //O novo objeto FileReader recebe o arquivo de texto 
             fr = new FileReader(caminho);
+
+            //A classe de Java BufferedReader lê o texto de um fluxo de símbolos, armazenando os símbolos em buffer para ler caracteres, arrays e strings com eficiência. Passamos o texto q está armazenado em fr
             BufferedReader buff = new BufferedReader(fr);
             String linha = "";
 
+            //Aqui criamos um While para que ele leia todo o texto até chegar ao fim do arquivo de texto, onde o fim retorna ao null
+            //O método readLine() é usado para ler uma linha de texto por vez. O fim de uma linha deve ser entendido por '\n' ou '\r' ou EOF
             while ( (linha = buff.readLine()) != null) {
-                    String[] partes = linha.split(" ");
-                    int numero1 = Integer.parseInt(partes[0]);
-                    int numero2 = Integer.parseInt(partes[1]);
-                    System.out.println(numero1 + " x " + numero2+ " = " + (numero1 * numero2) );
+                auxiliar = linha.split(" ");
+                    //Conversão do vetor de String para Integer
+                    for( String i : auxiliar){
+                        vetor.add(Integer.valueOf(i));
+                    }
                 }
+            
             buff.close();
-        
-        } catch (FileNotFoundException e) {
-            System.out.println("file not found");
-            e.printStackTrace();
-        }catch(IOException f){
-            System.out.println("error reanding from file");
-            f.printStackTrace();
-        } 
+            
+            //Criamos uma variável para indicar onde será armazenado a operação realizada pelo método escrita()
+            String saida = "ManipulaArquivo\\src\\manipulastring\\saida.txt";
+            
+            //passamos o parametro
+            escrita(saida);
     }
+
 
     //criação de um arquivo
+    //Este método tem como finalidade re
     public static void escrita(String caminho) throws IOException{
         
-        BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true));
-        String linha = "";
-        Scanner entrada = new Scanner(System.in);
-        for( int i = 0; i < 10; i++){
-            System.out.println("Digite dois numeros com um espaco entre eles. Ex: 1 1");
-            linha = entrada.nextLine();
-            writer.append(linha + "\n");
-        }
-            writer.close();
-            entrada.close();
+
+        int aux;
+        Vector<String> saida = new Vector<>();
         
-    }
+        for( int i = 1, j = 100; i <= 100; i++, j--){
+            aux = i * j;
+            saida.add(String.valueOf(i) + " x " + String.valueOf(j) + " = " + String.valueOf(aux));
+        }
 
-
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(caminho, true));
+            for(String i: saida){
+                writer.append( i +"\n");
+            }
+            writer.close();
+        } catch (Exception e) {
+            
+        }
+    } 
 
 }
