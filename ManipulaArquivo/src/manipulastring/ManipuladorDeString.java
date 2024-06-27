@@ -49,21 +49,24 @@ public class ManipuladorDeString {
             //Criamos uma variável para indicar onde será armazenado a operação realizada pelo método escrita()
             String saida = "ManipulaArquivo\\src\\manipulastring\\saida.txt";
             
-            //passamos o parametro
+            //passamos o parametro 
             escrita(saida);
     }
 
 
     //criação de um arquivo
-    //Este método tem como finalidade re
+    //Este método tem como finalidade criar um arquivo de texto, onde é passado como parametro, o diretório de um arquivo de texto
     public static void escrita(String caminho) throws IOException{
         
-
+        //Varivel auxiliar para receber e armazenar as operações
         int aux;
+
+
         Vector<String> saida = new Vector<>();
         
         for( int i = 1, j = 100; i <= 100; i++, j--){
             aux = i * j;
+            
             saida.add(String.valueOf(i) + " x " + String.valueOf(j) + " = " + String.valueOf(aux));
         }
 
