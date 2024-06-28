@@ -4,7 +4,8 @@
             "lib/**/*.jar",
             "d:\\Users\\ALUNO\\Downloads\\json-20240303.jar",
             "d:\\Users\\ALUNO\\Downloads\\json-simple-1.1.1.jar",
-            "c:\\Users\\Mateus\\Documents\\GitHub\\json-20240303.jar"
+            "c:\\Users\\Mateus\\Documents\\GitHub\\json-20240303.jar",
+            "d:\\Users\\ALUNO\\Documents\\GitHub\\javax.json-1.1.4.jar"
         ],
         "exclude": [
             "c:\\Users\\Mateus\\Documents\\GitHub\\json-20240303.jar"
