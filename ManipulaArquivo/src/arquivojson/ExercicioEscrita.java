@@ -2,36 +2,45 @@ package arquivojson;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONObject;
 
 public class ExercicioEscrita {
 
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         
-        //cria um Objeto JSON
-        JSONObject jsonObject = new JSONObject();
+        // Lista para armazenar objetos JSON de pessoas
+        List<JSONObject> listaPessoa = new ArrayList<>();
 
-        //chama a lib FileWiter para escrever
-        FileWriter escreve = null;
-
-        try {
+        try (FileWriter escreve = new FileWriter("ManipulaArquivo/src/arquivojson/saida2.json")) {
             
-        for(int i=0; i < 10; i++){
-
-            jsonObject.put("nome", "fulano"+i);
-            jsonObject.put("ultimo nome", "siclano"+i);
-            //https://pt.stackoverflow.com/questions/259720/jsonarray-adicionando-e-sobreescrevendo
-            //http://www.java2s.com/Code/Jar/j/json-simple.htm
-            //
-            escreve = new FileWriter("ManipulaArquivo\\src\\arquivojson\\saida2.json");
-            escreve.write(jsonObject.toString());
+            // Loop para criar 10 objetos JSON diferentes e adicionar à lista
+            for (int i = 0; i < 100; i++) {
+                JSONObject pessoaJson = new JSONObject();
+                pessoaJson.put("nome", "fulano" + i);
+                pessoaJson.put("ultimo nome", "siclano" + i);
+                listaPessoa.add(pessoaJson);
             }
-         escreve.close();   
-        } catch (IOException e) {
-            e.getStackTrace();
-        }
+            
+            JSONObject pessoasJson = new JSONObject();
+            pessoasJson.put("Dados", listaPessoa);
+            List<JSONObject> arrayPessoas = new ArrayList<>();
+            arrayPessoas.add(pessoasJson);
+            
+            
+            
+            // Escrevendo a lista de JSONs no arquivo
+            for (JSONObject json : arrayPessoas) {
+                escreve.write(json.toString());
+                //escreve.write("\n"); // Incluir uma quebra de linha entre cada objeto, opcional
+            }
+            
+            
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

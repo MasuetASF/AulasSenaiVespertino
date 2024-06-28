@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="AULA02/src"/>
+	<classpathentry kind="src" path="AULA03/src"/>
+	<classpathentry kind="src" path="Aula04/src"/>
+	<classpathentry kind="src" path="Empresa/src"/>
+	<classpathentry kind="src" path="Estoque/src"/>
+	<classpathentry kind="src" path="Fibonacci/src"/>
+	<classpathentry kind="src" path="Interface/src"/>
+	<classpathentry kind="src" path="ManipulaArquivo/src"/>
+	<classpathentry kind="src" path="olaMundo/src"/>
+	<classpathentry kind="src" path="Pessoa/src"/>
+	<classpathentry kind="src" path="trycatch/src"/>
+	<classpathentry kind="src" path="Veiculo/src"/>
+	<classpathentry kind="lib" path="C:/Users/Mateus/Documents/GitHub/json-20240303.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mateus/Documents/GitHub/json-parse-1.3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mateus/Documents/GitHub/json-simple-1.1.1.jar"/>
+	<classpathentry kind="output" path="olaMundo/bin"/>
+</classpath>

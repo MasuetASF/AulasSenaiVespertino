@@ -1,8 +1,9 @@
 package arquivojson;
 
-import org.json.*;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import org.json.JSONObject;
 
 
 

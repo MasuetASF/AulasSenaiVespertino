@@ -1,47 +1,39 @@
 package arquivojson;
-import org.json.*;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.JSONObject;
 
-
-import java.io.FileReader;
-import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.json.*;
 
+public class ExercicioEscrita {
 
+    public static void main(String[] args) {
+        
+        // Lista para armazenar objetos JSON de pessoas
+        List<JSONObject> listaPessoa = new ArrayList<>();
 
-public class Leitura {
-   
-    @SuppressWarnings("deprecation")
-	public static void main(String[] args) throws IOException, FileNotFoundException, ParseException{
-
-		//Cria um Objeto JSON
-		JSONObject jsonObject = new JSONObject();
-
-        JSONParser parse = new JSONParser();
-
-        String nome;
-        String ultimoNome;
-        String cidade;
-        String estado;
-
-        try {
-            jsonObject = (JSONObject) parse.parse(new FileReader("ManipulaArquivo\\src\\arquivojson\\saida.json"));
-            nome = (String) jsonObject.get("nome");
-            ultimoNome = (String) jsonObject.get("ultimo nome");
-            cidade = (String) jsonObject.get("cidade");
-            estado = (String) jsonObject.get("estado");
-
-            System.out.printf("Meu nome completo é %s %s, nasci em %s do estado de %s. ",nome,ultimoNome,cidade,estado);
+        try (FileWriter escreve = new FileWriter("ManipulaArquivo/src/arquivojson/saida2.json")) {
+            
+            // Loop para criar 10 objetos JSON diferentes e adicionar à lista
+            for (int i = 0; i < 10; i++) {
+                JSONObject pessoaJson = new JSONObject();
+                pessoaJson.put("nome", "fulano" + i);
+                pessoaJson.put("ultimo nome", "siclano" + i);
+                listaPessoa.add(pessoaJson);
+            }
+            
+            // Escrevendo a lista de JSONs no arquivo
+            for (JSONObject json : listaPessoa) {
+                escreve.write(json.toString());
+                escreve.write("\n"); // Incluir uma quebra de linha entre cada objeto, opcional
+            }
+            
+            System.out.println("Arquivo 'saida2.json' criado com sucesso.");
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (org.json.simple.parser.ParseException f) {
-            f.printStackTrace();
         }
-        
-
     }
 }
