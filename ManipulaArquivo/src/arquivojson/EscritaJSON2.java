@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.json.*;
 
-public class ExercicioEscrita {
+public class EscritaJSON2 {
 
     public static void main(String[] args) {
         
