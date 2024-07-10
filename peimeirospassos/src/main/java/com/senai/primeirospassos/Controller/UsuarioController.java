@@ -1,14 +1,12 @@
+package com.senai.primeirospassos.controller;
+import com.senai.primeirospassos.model.UsuarioModel;
+import com.senai.primeirospassos.view.UsuarioView;
 
-package com.senai.primeirospassos.Controller;
-import com.senai.primeirospassos.model.Usuario;
-import com.senai.primeirospassos.View.UsuarioView;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
-
-
 
 @RestController
 public class UsuarioController {
@@ -17,10 +15,9 @@ public class UsuarioController {
     private UsuarioView view;
 
     @GetMapping("/usuarios")
-    public List<Usuario> getAll(){
+    public List<UsuarioModel> getAll(){
         return view.listAll();
     }
+
     
-
-
 }
