@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Pessoas") // Caso queira mudar o nome da tabela, senão a tabela recebe o nome da classe
+@Table(schema = "api",name = "Pessoas") // Caso queira mudar o nome da tabela, senão a tabela recebe o nome da classe
 public class Pessoa {
 
     @Id
