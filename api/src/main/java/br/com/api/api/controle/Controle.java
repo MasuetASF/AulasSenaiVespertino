@@ -3,6 +3,7 @@ package br.com.api.api.controle;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.api.modelo.Pessoa;
 import br.com.api.api.repositorio.PessoaRepositorio;
-
-
-
 
 
 @RestController
@@ -40,32 +38,33 @@ public class Controle {
         return funcao.findByid(id);
     }
 
-    //edit;
-    @PutMapping("/tudo")
-    public Pessoa editar(@RequestBody Pessoa pessoinha) {        
-        return funcao.save(pessoinha);
-    }
     
-    
-    
-    @GetMapping("/ola")
-    public String mensagem(){
-        return "Olá Mundo!";
+
+    @PutMapping("/tudo/{id}")
+    public void editar(@PathVariable int id, @RequestBody Pessoa pessoinha) {
+        
+        if (funcao.existsById(id)) {
+            pessoinha.setId(id);
+            funcao.save(pessoinha);
+        } else {
+            
+            throw new RuntimeException("Pessoa com ID " + id + " não encontrada");
+        }
     }
 
-    @GetMapping("/bemvindo")
-    public String bemVindo() {
-        return "Bem vindo ao Spring";
+    @DeleteMapping("/tudo/{id}")
+    public void deletar(@PathVariable int id) {
+        if (funcao.existsById(id)) {
+        funcao.deleteById(id);
+        }else{
+            throw new RuntimeException("Pessoa com ID " + id + " não encontrada");
+        }
     }
 
-    @GetMapping("/bemvindo/{nome}")
-    public String bemVindo(@PathVariable String nome) {
-        return "Bem vindo(a) " +nome;
+    @DeleteMapping("/tudo/deletar")
+    public void deleteAll(){
+        funcao.deleteAll();
     }
-
-    @PostMapping("/pessoa")
-    public Pessoa pessoa (@RequestBody Pessoa p){
-        return p;
-    }
+    
     
 }
