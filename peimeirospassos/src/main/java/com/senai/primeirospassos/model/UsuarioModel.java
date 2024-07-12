@@ -1,16 +1,16 @@
 package com.senai.primeirospassos.model;
 
-public class Usuario {
+public class UsuarioModel {
     private String login;
     private String password;
 
 
-    public Usuario(){
+    public UsuarioModel(){
 
     }
 
     //Método construtor
-    public Usuario(String login, String password){
+    public UsuarioModel(String login, String password){
         this.login = login;
         this.password = password;
     }

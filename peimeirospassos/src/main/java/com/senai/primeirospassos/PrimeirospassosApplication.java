@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
-
 @RestController
 @SpringBootApplication
 public class PrimeirospassosApplication {
@@ -27,9 +25,6 @@ public class PrimeirospassosApplication {
 		return 3+6;
 	}
 	
-
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(PrimeirospassosApplication.class, args);
 	}
