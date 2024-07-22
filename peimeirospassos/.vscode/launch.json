@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "PrimeirospassosApplication",
+            "request": "launch",
+            "mainClass": "com.senai.primeirospassos.PrimeirospassosApplication",
+            "projectName": "primeirospassos"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PrimeirospassosApplication<primeirospassos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.senai.primeirospassos.PrimeirospassosApplication",
+            "projectName": "primeirospassos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
