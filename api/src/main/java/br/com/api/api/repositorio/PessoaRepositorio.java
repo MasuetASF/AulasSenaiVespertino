@@ -1,5 +1,7 @@
 package br.com.api.api.repositorio;
 
+
+
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -13,6 +15,5 @@ public interface PessoaRepositorio extends CrudRepository<Pessoa, Integer> {
     List<Pessoa> findAll();
 
     List<Pessoa> findByid(int id);
-
 
 }

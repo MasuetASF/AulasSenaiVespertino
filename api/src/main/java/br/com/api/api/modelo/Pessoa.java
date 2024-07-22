@@ -13,11 +13,11 @@ import jakarta.persistence.Table;
 public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String nome;
     private int idade;
-
+    
     public String getNome() {
         return nome;
     }
@@ -30,5 +30,13 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
 
 }
