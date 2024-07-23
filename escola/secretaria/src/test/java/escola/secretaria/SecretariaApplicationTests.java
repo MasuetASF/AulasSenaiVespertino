@@ -1,4 +1,4 @@
-package com.secretaria.secretaria;
+package escola.secretaria;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

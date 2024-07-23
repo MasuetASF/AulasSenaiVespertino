@@ -1,4 +1,4 @@
-package com.secretaria.secretaria;
+package escola.secretaria;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
