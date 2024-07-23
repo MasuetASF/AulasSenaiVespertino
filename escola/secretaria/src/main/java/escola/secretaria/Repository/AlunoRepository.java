@@ -1,0 +1,15 @@
+package escola.secretaria.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import escola.secretaria.Model.Aluno;
+
+
+public interface AlunoRepository extends JpaRepository<Aluno, Integer>{
+
+    public List<Aluno> findAll();
+    
+    
+}

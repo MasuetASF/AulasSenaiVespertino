@@ -1,7 +1,7 @@
 package escola.secretaria.Enum;
 
 public enum Sexo {
-    NASC("Masculino"),
+    MASC("Masculino"),
     FEM("Feminino");
 
     private String sexo;
