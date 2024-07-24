@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import escola.secretaria.Model.Aluno;
 
 
-public interface AlunoRepository extends JpaRepository<Aluno, Integer>{
+@SuppressWarnings("rawtypes")
+public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 
+    @SuppressWarnings("null")
     public List<Aluno> findAll();
-    
-    
 }

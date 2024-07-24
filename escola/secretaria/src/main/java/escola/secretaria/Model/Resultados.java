@@ -17,45 +17,50 @@ import jakarta.validation.constraints.NotNull;
 public class Resultados {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id RES")
-    private long id;
+    private long idRes;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="Matricula", referencedColumnName="Matricula")  
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Matricula", referencedColumnName = "Matricula")
     private Aluno matricula;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="id Disciplina", referencedColumnName="id")  
-    private DisciplinasModel disciplina;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Id Disciplina", referencedColumnName = "Id Disciplina")
+    private DisciplinasModel idDis;
 
-    @Column(name= "PRINota")
+    @Column(name  = "PriNota")
     @NotBlank
     @NotNull
     private double priNota;
 
-    @Column(name= "SEGNota")
+    @Column(name  = "SegNota")
     @NotBlank
     @NotNull
     private double segNota;
 
-    @Column(name= "TERNota")
+    @Column(name  = "TerNota")
     @NotBlank
     @NotNull
     private double terNota;
 
-    @Column(name= "QUANota")
+    @Column(name  = "QuaNota")
     @NotBlank
     @NotNull
     private double quaNota;
 
+    @Column(name  = "Media")
+    @NotBlank
+    @NotNull
+    private double media;
 
-    public long getId() {
-        return id;
+
+    public long getIdRes() {
+        return idRes;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdRes(long idRes) {
+        this.idRes = idRes;
     }
 
     public Aluno getMatricula() {
@@ -66,12 +71,12 @@ public class Resultados {
         this.matricula = matricula;
     }
 
-    public DisciplinasModel getDisciplina() {
-        return disciplina;
+    public DisciplinasModel getIdDis() {
+        return idDis;
     }
 
-    public void setDisciplina(DisciplinasModel disciplina) {
-        this.disciplina = disciplina;
+    public void setIdDis(DisciplinasModel idDis) {
+        this.idDis = idDis;
     }
 
     public double getPriNota() {
@@ -106,9 +111,20 @@ public class Resultados {
         this.quaNota = quaNota;
     }
 
+    public double getMedia() {
+        return media;
+    }
     
+    public void resultado(double priNota, double segNota, double terNota, double quaNota){
+        double media= 0.0;
+        media = (priNota + segNota + terNota + quaNota)/4;
+        setMedia(media);
+    }
 
-    
 
+    public void setMedia(double media) {
+        this.media = media;
+    }
 
+       
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import escola.secretaria.Enum.Disciplinas;
 import escola.secretaria.Model.Aluno;
 import escola.secretaria.Model.DisciplinasModel;
 import escola.secretaria.Model.Resultados;
@@ -18,13 +17,16 @@ import escola.secretaria.Repository.ResultadosRepository;
 
 
 
+
 @RestController
 public class AlunoController {
 
     @Autowired
     private AlunoRepository alunoRepository;
+
     @Autowired
     private DisciplinaRepository disciplinaRepository;
+
     @Autowired
     private ResultadosRepository resultadosRepository;
 
@@ -45,17 +47,24 @@ public class AlunoController {
     }
 
     @PostMapping("/inserirdisciplina")
-    public DisciplinasModel inserirDisciplina(@RequestBody DisciplinasModel dis) {        
-        return disciplinaRepository.save(dis);
+    public DisciplinasModel inserirDisciplina(@RequestBody DisciplinasModel disciplinas) {
+        return disciplinaRepository.save(disciplinas);
+
     }
     
     @PostMapping("/lancarnotas")
-    public Resultados inserirNotas(@RequestBody Resultados resultados) {
+    public Resultados inserirNotas(@RequestBody Resultados resultados){
+        //resultados.resultado(resultados.getPriNota(), resultados.getSegNota(), resultados.getTerNota(), resultados.getQuaNota());
         return resultadosRepository.save(resultados);
     }
     
 
+    @GetMapping("/mostrardisciplina")
+    public List<DisciplinasModel> listaDisciplina() {
+        return disciplinaRepository.findAll();
+    }
 
-    
+
+
 
 }

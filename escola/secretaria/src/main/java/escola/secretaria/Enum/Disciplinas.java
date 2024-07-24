@@ -3,10 +3,11 @@ package escola.secretaria.Enum;
 public enum Disciplinas {
      //enum: enumera uma lista de informações
 
-     MATEMATICA("Matematica"),
+     MATEMATICA("Matemática"),
      PORTUGUES("Português"),
      HISTORIA("História"),
      GEOGRAFIA("Geografia"),
+     ABC("abc"),
      CIENCIAS("Ciências");
  
      private String disciplinas;

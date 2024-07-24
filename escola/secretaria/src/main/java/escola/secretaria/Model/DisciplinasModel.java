@@ -16,14 +16,14 @@ import jakarta.validation.constraints.NotNull;
 public class DisciplinasModel {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = "Id Disciplina")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "nome")
+    @Column(name = "Nome")
     @Enumerated(EnumType.STRING)
     @NotNull
-    private String disciplinas;
+    private Disciplinas disciplinas;
 
     public long getId() {
         return id;
@@ -33,14 +33,11 @@ public class DisciplinasModel {
         this.id = id;
     }
 
-    public String getDisciplinas() {
+    public Disciplinas getDisciplinas() {
         return disciplinas;
     }
 
-    public void setDisciplinas(String disciplinas) {
+    public void setDisciplinas(Disciplinas disciplinas) {
         this.disciplinas = disciplinas;
     }
-
-    
-
 }

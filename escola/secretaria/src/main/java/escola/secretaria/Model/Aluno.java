@@ -25,7 +25,7 @@ public class Aluno {
     @NotNull
     private long matricula;
 
-    @Column (name = "Nome")
+    @Column(name = "Nome")
     @NotBlank(message = "O nome não pode ser vazio")
     @NotNull
     private String nome;
@@ -33,16 +33,20 @@ public class Aluno {
     @Column(name = "Turno")
     @Enumerated(EnumType.STRING)
     @NotNull
-    private Turnos turno;
+    private Turnos turnos;
 
     @Column(name = "Turma")
     @Enumerated(EnumType.STRING)
     @NotNull
     private Turma turma;
 
-    @Column(name = "Sexo")
-    @Enumerated(EnumType.STRING)
+    @Column(name = "Idade")
     @NotNull
+    private int idade;
+
+    @Column(name = "Sexo")
+    @NotNull
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
     public String getNome() {
@@ -61,12 +65,12 @@ public class Aluno {
         this.matricula = matricula;
     }
 
-    public Turnos getTurno() {
-        return turno;
+    public Turnos getTurnos() {
+        return turnos;
     }
 
-    public void setTurno(Turnos turno) {
-        this.turno = turno;
+    public void setTurnos(Turnos turnos) {
+        this.turnos = turnos;
     }
 
     public Turma getTurma() {
@@ -77,12 +81,21 @@ public class Aluno {
         this.turma = turma;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public Sexo getSexo() {
         return sexo;
     }
 
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
-    }
+    }    
 
+    
 }
