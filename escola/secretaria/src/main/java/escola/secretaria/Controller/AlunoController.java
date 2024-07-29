@@ -54,9 +54,19 @@ public class AlunoController {
     
     @PostMapping("/lancarnotas")
     public Resultados inserirNotas(@RequestBody Resultados resultados){
-        //resultados.resultado(resultados.getPriNota(), resultados.getSegNota(), resultados.getTerNota(), resultados.getQuaNota());
+        resultados.resultado(resultados.getPriNota(), resultados.getSegNota(), resultados.getTerNota(), resultados.getQuaNota());
         return resultadosRepository.save(resultados);
     }
+
+    // {
+    //     "Aluno":{"matricula": 1},
+    //        "DisciplinaModel":{"idDis": 1},
+    //     "priNota": 8,
+    //     "segNota": 8,
+    //     "terNota": 8,
+    //     "quaNota": 9.0,
+    //     "media": 7.6
+    // }
     
 
     @GetMapping("/mostrardisciplina")

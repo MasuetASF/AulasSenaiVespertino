@@ -1,6 +1,7 @@
 package escola.secretaria.Model;
 
 import escola.secretaria.Enum.Disciplinas;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -19,6 +22,10 @@ public class DisciplinasModel {
     @Column(name = "Id Disciplina")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToOne(mappedBy = "idDis", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Resultados resultados;
 
     @Column(name = "Nome")
     @Enumerated(EnumType.STRING)
