@@ -11,6 +11,7 @@ public interface DisciplinaRepository extends JpaRepository<DisciplinasModel, In
 
     @SuppressWarnings("null")
     public List<DisciplinasModel> findAll();
+    
 
     
 }

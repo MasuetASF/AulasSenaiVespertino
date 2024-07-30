@@ -30,7 +30,6 @@ public class Aluno {
 
 
     @OneToOne(mappedBy = "matricula", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     private Resultados resultados;
 
     @Column(name = "Nome")

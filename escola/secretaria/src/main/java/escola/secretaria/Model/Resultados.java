@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Resultados")
@@ -39,10 +38,12 @@ public class Resultados {
 
     @Column(name  = "QuaNota")
     private double quaNota;
-
+    
     @Column(name  = "Media")
     private double media;
 
+    @Column(name = "ResultadoFinal")
+    private String resultadoFinal;
 
     public long getIdRes() {
         return idRes;
@@ -113,6 +114,25 @@ public class Resultados {
 
     public void setMedia(double media) {
         this.media = media;
+    }
+
+    public String getResultadoFinal() {
+        return resultadoFinal;
+    }
+
+    public void setResultadoFinal(String resultadoFinal) {
+        this.resultadoFinal = resultadoFinal;
+    }
+
+    public void resultadoFinal(double media){
+        if(media >= 6) {
+            setResultadoFinal("APROVADO");
+        }else if(media >= 5 && media <= 5.9 ){
+            setResultadoFinal("RECUPERACAO");
+        }
+        else{
+            setResultadoFinal("REPROVADO");
+        }
     }
 
        

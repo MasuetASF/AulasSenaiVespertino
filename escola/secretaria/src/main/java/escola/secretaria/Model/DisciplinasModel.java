@@ -24,7 +24,6 @@ public class DisciplinasModel {
     private long id;
 
     @OneToOne(mappedBy = "idDis", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     private Resultados resultados;
 
     @Column(name = "Nome")
