@@ -16,6 +16,8 @@ import escola.secretaria.Model.Resultados;
 import escola.secretaria.Repository.AlunoRepository;
 import escola.secretaria.Repository.DisciplinaRepository;
 import escola.secretaria.Repository.ResultadosRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -75,15 +77,6 @@ public class AlunoController {
     }
 
 
-    
-
-
-
-
-    
-    
-
-
     // {
     //     "Aluno":{"matricula": 1},
     //        "DisciplinaModel":{"idDis": 1},
@@ -100,7 +93,11 @@ public class AlunoController {
         return disciplinaRepository.findAll();
     }
 
-
+    @GetMapping("/atualizar")
+    public int aprocvados() {
+        return resultadosRepository.updateResultadosAprovado();
+    }
+    
 
 
 }
