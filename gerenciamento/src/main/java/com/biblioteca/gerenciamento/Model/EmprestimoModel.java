@@ -2,20 +2,15 @@ package com.biblioteca.gerenciamento.Model;
 
 import java.sql.Date;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class EmprestimoModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idEmprestimo;
-
 
     @OneToOne()
     private UsuarioModel usuario;

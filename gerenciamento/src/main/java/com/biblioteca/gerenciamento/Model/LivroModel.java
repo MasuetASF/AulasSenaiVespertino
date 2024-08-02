@@ -4,12 +4,10 @@ import java.util.List;
 
 import com.biblioteca.gerenciamento.Enum.StatusEnum;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class LivroModel {

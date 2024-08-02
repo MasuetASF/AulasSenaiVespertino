@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biblioteca.gerenciamento.Model.LivroModel;
 import com.biblioteca.gerenciamento.Repository.LivroRepository;
 
-
-
-
-
 @RestController
 public class LivroController {
 
     @Autowired
-    LivroRepository livroRepository;
+    private LivroRepository livroRepository;
 
     @GetMapping("/teste")
     public String teste() {
@@ -28,14 +24,11 @@ public class LivroController {
     
     @PostMapping("/adicionarlivro")
     public LivroModel adicionarLivro(@RequestBody LivroModel livro) {
-        
         return livroRepository.save(livro);
     }
 
     @GetMapping("/listarlivros")
     public List<LivroModel> getlivros() {
         return livroRepository.findAll();
-    }
-    
-    
+    }    
 }
