@@ -3,6 +3,7 @@ package escola.secretaria.Model;
 import escola.secretaria.Enum.Sexo;
 import escola.secretaria.Enum.Turma;
 import escola.secretaria.Enum.Turnos;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,16 +11,33 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "Alunos")
 public class Aluno {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Matricula")
+    @NotNull
+    private long matricula;
+
+
+    @OneToOne(mappedBy = "matricula", cascade = CascadeType.ALL)
+    private Resultados resultados;
+
+    @Column(name = "Nome")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
@@ -34,6 +52,7 @@ public class Aluno {
     @Size(min = 5, max = 50, message = "A matricula deve conter entre 5 e 50 caracteres")
     private String matricula;
 
+
     @Column(name = "Turno")
     @Enumerated(EnumType.STRING)
     @NotNull
@@ -46,13 +65,16 @@ public class Aluno {
 
     @Column(name = "Idade")
     @NotNull
+
     @NotBlank(message = "Forneça a idade")
+
     private int idade;
 
     @Column(name = "Sexo")
     @NotNull
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
+
 
     public long getId() {
         return id;
@@ -62,6 +84,7 @@ public class Aluno {
         this.id = id;
     }
 
+
     public String getNome() {
         return nome;
     }
@@ -70,11 +93,19 @@ public class Aluno {
         this.nome = nome;
     }
 
+
+    public long getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(long matricula) {
+
     public String getMatricula() {
         return matricula;
     }
 
     public void setMatricula(String matricula) {
+
         this.matricula = matricula;
     }
 
@@ -108,6 +139,10 @@ public class Aluno {
 
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
+
+    }    
+
+
     }
 
 

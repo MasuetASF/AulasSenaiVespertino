@@ -6,7 +6,14 @@ public enum Sexo {
 
     private String sexo;
 
+
+    private Sexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+
     private Sexo(String sexo){
         this.sexo = sexo;
     }
+
 }

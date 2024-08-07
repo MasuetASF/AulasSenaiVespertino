@@ -9,8 +9,16 @@ public enum Turma {
 
     private String turma;
 
+
+    private Turma(String turma) {
+        this.turma = turma;
+    }
+
+    
+
     private Turma(String turma){
         this.turma = turma;
     }
+
 
 }
