@@ -1,5 +1,45 @@
-h4{
-    color: indianred;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+body{
+    padding: 0;
+    margin: 10px;
+}
+
+form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  max-width: 450px;
+  background-color: rgb(160, 239, 245);
+}
+
+h1{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: rgb(145, 50, 223);
+}
+
+input, textarea {
+  width: 200px;
+  padding: 10px;
+  counter-reset: #000000;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+
+#NumAId,#NumBId{
+  width: 50px;
+  padding: 10px;
+}
+
+input:hover, input:focus{
+  border-color: rgb(0, 140, 255);
+  box-shadow: 5px 0 10px;
+  background-color: aquamarine;
+  font-weight: bold;
+}
+
+textarea{
+  width: 900px;
+  height: 120px;
+  max-width: 400px;
+
+}

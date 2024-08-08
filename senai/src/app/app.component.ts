@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,6 +8,22 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'senai';
+
+  constructor(){}
+  public modelo = '';
+
+  numA:Number=0;
+  numB:Number=0;
+  valorTotal:Number=0;
+
+  Enviar(inputModelo: String) {
+    alert('Parabéns veiculo ' + inputModelo +' cadastrado!!');
+  }
+
+  Somar(a:String, b:String){
+     return this.valorTotal = Number(this.numA) + Number(this.numB);
+  }
+  
 }

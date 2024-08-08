@@ -1,20 +1,41 @@
-<!DOCTYPE html>
-
-<html>
+    <title> Formulário de Cadastro de Veículos </title>  
   
-  <h2> Meu formulário </h2>
-  <p>Nome</p>
-  <input type="text" id="nome">    
+    <form name="cadVeiculo" action="">
+      <h1>Insira os dados do Veículo</h1>
 
-  <button type="button" onclick="obterValor()" >Enviar</button>
+      <input type="text" id="placaId" name="placa" placeholder="Digite a placa do Veículo" required  #inputPlaca /> 
+      <label for="placaId">Placa</label>
+      
+      <input type="text" name="modelo" id="modeloId" placeholder="Modelo do Veículo" required #inputModelo/>
+      <label for="modeloId">Modelo</label>
 
-  
-  <script>
-    function obterValor() {
-      const valor = document.getElementsById('nome')
-      return document.getElementsById('resultado') = valor
-    }
-    </script>
-    
-    <p id="resultado"></p>
-</html>
+      <input type="number" name="anoModelo" id="anoModeloId" min="1900" max="2099" step="1" value="2024" placeholder="yyyy" required #inputAnoModelo/>
+      <label for="anoModeloId">Ano Modelo</label>
+      
+      <input type="number" name="Fabricacao" id="anoFabricacaoId" min="1900" max="2099" step="1" value="2024" placeholder="yyyy" required #inputAnoFabricacao/>
+      <label for="anoFabricacaoId">Ano Fabricação</label>
+
+      <input type="submit" (click)="Enviar(inputModelo.value)" value="ENVIAR"/>
+
+    </form>
+
+    <hr>
+
+    <form name="Calulo" action="">
+      <h1> Calculadora </h1>
+
+      <input type="text" id="NumAId" name="numA" placeholder="valor" required  #inputA /> 
+      +      
+      <input type="text" id="NumBId" name="numB" placeholder="valor" required  #inputB /> 
+      =
+
+      <input type="submit" (click)="Somar(inputA.value, inputB.value)" value="ENVIAR"/>
+
+
+    </form>
+
+
+
+<!-- 
+  Estudar sobre como pegar informação do angular paro o spring (front p back)
+  https://www.youtube.com/watch?v=xLhNxqEQnLo -->
