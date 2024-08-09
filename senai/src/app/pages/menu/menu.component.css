@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(162, 247, 247);
+}
+
+button{
+    padding: 20px;
+    width: 400px;
+    border-radius: 3%;
+}
+button:hover{
+    background-color: azure;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+a{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-size: 25px;
+}

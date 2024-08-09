@@ -1,0 +1,73 @@
+<title> Cadastro de Veículos </title>  
+
+<h1>Cadastro de Veículo</h1>
+
+<hr>
+
+<div class="form-car">
+    <form name="cadVeiculo" action="">
+      <h3>Insira os dados do Veículo</h3>
+
+          <div class="form-field">
+            <label for="placaId">Placa</label><br>
+          <input type="text" id="placaId" name="placa" placeholder="Digite a placa do Veículo" required  #inputPlaca /><br> 
+          </div>
+
+          <div class="form-field">
+            <label for="renavamId">Renavam</label><br>
+          <input type="number" id="renavamId" name="renavam" min="1" max="99999999999" placeholder="Digite o renavam do Veículo" required  #inputPlaca /><br> 
+          </div>
+
+          <div class="form-field">
+            <label for="marcaId">Marca</label><br>
+            <input type="text" name="marca" id="marcaId" placeholder="Marca do Veículo" required #inputMarca/><br>
+          </div>
+          
+          <div class="form-field">
+            <label for="modeloId">Modelo</label><br>
+            <input type="text" name="modelo" id="modeloId" placeholder="Modelo do Veículo" required #inputModelo/><br>
+          </div>
+          
+          <div class="form-field">
+            <label for="anoModeloId">Ano Modelo</label><br>
+            <input type="number" name="anoModelo" id="anoModeloId" min="1900" max="2099" step="1" value="2024" placeholder="yyyy" required #inputAnoModelo/><br>
+          </div>
+            
+          <div class="form-field">
+            <label for="anoFabricacaoId">Ano Fabricação</label><br>
+            <input type="number" name="fabricacao" id="anoFabricacaoId" min="1900" max="2099" step="1" value="2024" placeholder="yyyy" required #inputAnoFabricacao/><br>
+          </div>
+
+
+          <div class="form-field">
+            <label for="motorizacaoId">Motorização</label><br>
+            <input type="number" name="motorizacao" id="motorizacaoId" min="1" max="2000" step="1" value="90"placeholder="Motorização do Veículo" required #inputMotorizacao/><br>
+          </div>
+
+          <div class="form-field">
+            <label for="capadidadeTanqueId">Capacidade Tanque (Litros)</label><br>
+            <input type="text" name="capadidadeTanque" id="capadidadeTanqueId" placeholder="Motorização do Veículo" required #inputMotorizacao/><br>
+          </div>
+
+          <div class="form-field">
+            <label for="combustiveisAceitosId">Combustíveis Aceitos </label><br>
+            <select name="combustiveisAceitos" id="combustiveisAceitosId">
+              <option value="Gasolina">Gasolina</option>
+              <option value="Alcool">Álcool</option>
+              <option value="Flex" selected>Flex</option>
+              <option value="Diesel">Diesel</option>
+              <option value="GNV">GNV</option>
+            </select>
+          </div>
+
+
+
+
+
+          
+          <input type="submit" value="ENVIAR"/>
+
+    </form>
+
+</div>
+

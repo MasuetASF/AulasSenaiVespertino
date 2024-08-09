@@ -1,0 +1,50 @@
+body{
+    padding: 0;
+    margin: 10px;
+    
+}
+
+h1{
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(162, 247, 247);
+}
+
+h3{
+  text-align: center;
+}
+
+
+form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(224, 234, 235);
+}
+
+.form-car{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.form-field{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+input,select{
+  width: 400px;
+  counter-reset: #000000;
+  font-size: 25px;
+}
+
+
+
+input:hover, input:focus{
+  border-color: rgb(0, 140, 255);
+  box-shadow: 5px 0 10px;
+  background-color: rgb(158, 158, 158);
+  font-weight: bold;
+}
