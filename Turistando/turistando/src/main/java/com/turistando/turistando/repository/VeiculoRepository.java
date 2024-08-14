@@ -8,4 +8,5 @@ import com.turistando.turistando.model.VeiculoModel;
 
 public interface VeiculoRepository extends JpaRepository<VeiculoModel, String>{
     
+    
 }

@@ -4,6 +4,8 @@ import com.turistando.turistando.enums.CombustivelEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Entity
@@ -30,6 +32,7 @@ public class VeiculoModel {
 
     private double capacidadeTanque;
 
+    @Enumerated(EnumType.STRING) 
     private CombustivelEnum combustivel;
 
     public String getPlaca() {
