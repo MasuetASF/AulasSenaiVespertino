@@ -1,0 +1,9 @@
+com\autenticacao\appautentic\Model\UsuarioModel.class
+com\autenticacao\appautentic\Model\RuleModel.class
+com\autenticacao\appautentic\Details\UsuarioDetailsImpl.class
+com\autenticacao\appautentic\Details\UsuarioDetailsServiceImp.class
+com\autenticacao\appautentic\Model\RuleModel$RuleModelBuilder.class
+com\autenticacao\appautentic\AppautenticApplication.class
+com\autenticacao\appautentic\Model\UsuarioModel$UsuarioModelBuilder.class
+com\autenticacao\appautentic\Repository\UsuarioRepository.class
+com\autenticacao\appautentic\Enums\RulesEnum.class
