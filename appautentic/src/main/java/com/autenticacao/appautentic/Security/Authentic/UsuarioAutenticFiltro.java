@@ -41,7 +41,7 @@ public class UsuarioAutenticFiltro extends OncePerRequestFilter{
                     UsuarioDetailsImpl usuarioDetailsImpl = new UsuarioDetailsImpl(usuario);
 
 
-                    //objote de autenticaçao do spring;
+                    //objeto de autenticaçao do spring;
                     Authentication authentic = new UsernamePasswordAuthenticationToken(usuarioDetailsImpl.getUsername(),null, usuarioDetailsImpl.getAuthorities());
 
 
