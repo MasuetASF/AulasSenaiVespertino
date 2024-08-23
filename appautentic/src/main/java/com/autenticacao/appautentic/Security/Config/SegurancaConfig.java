@@ -15,49 +15,52 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.autenticacao.appautentic.Security.Authentic.UsuarioAutenticFiltro;
 
+
+
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SegurancaConfig {
 
     @Autowired
     private UsuarioAutenticFiltro usuarioAutenticFiltro;
+    
+    public static final String [] ENDPOINTS_AUTHENTICATION_NOT_REQUIRED ={
+        "/usuario/login",
+        "/usuario/creat",
+        "/usuario/rodou"
+    };
 
-    public static final String [] ENDPOINTS_AUTHENTICATION_NOT_REQUIRED =
-        {
-            "/usuario/login",
-            "/usuario/create"
-        };
+    public static final String [] ENDPOINTS_AUTHENTICATION_REQUIRED ={
+        "/usuario/teste"    
+    };
 
-    public static final String [] ENDPOINTS_AUTHENTICATION_REQUIRED =    {
-            "/usuario/teste"
-        };
+    public static final String [] ENDPOINTS_CLIENTE = {
+        "/usuario/teste/cliente"
+    };
 
-        public static final String [] ENDPOINTS_CLIENTE =    {
-            "/usuario/teste/cliente"
-        };
-        public static final String [] ENDPOINTS_ADMIN =    {
-            "/usuario/teste/admin"
-        };
+    public static final String [] ENDPOINTS_ADMIN = {
+        "/usuario/teste/admin"
+    };
     
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(csrf -> csrf.disable())
+    public SecurityFilterChain securityFilter(HttpSecurity httpSecurity)throws Exception{
+        return  httpSecurity.csrf(csrf -> csrf.disable())
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(autorize -> autorize.requestMatchers(ENDPOINTS_AUTHENTICATION_NOT_REQUIRED).permitAll())
-                .authorizeHttpRequests(autorize -> autorize.requestMatchers(ENDPOINTS_AUTHENTICATION_REQUIRED).permitAll().anyRequest().authenticated())
-                .authorizeHttpRequests(autorize -> autorize.requestMatchers(ENDPOINTS_CLIENTE).hasAnyRole("Admin"))
-                .authorizeHttpRequests(autorize -> autorize.requestMatchers(ENDPOINTS_ADMIN).hasAnyRole("Cliente"))
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(ENDPOINTS_AUTHENTICATION_NOT_REQUIRED).permitAll())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(ENDPOINTS_AUTHENTICATION_REQUIRED).authenticated())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(ENDPOINTS_ADMIN).hasRole("Admin"))
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(ENDPOINTS_CLIENTE).hasRole("Cliente"))
                 .addFilterBefore(usuarioAutenticFiltro, UsernamePasswordAuthenticationFilter.class)
                 .build();
+            
     }
 
     @Bean
-    public AuthenticationManager authenticationManager (AuthenticationConfiguration authenticationConfiguration) throws  Exception{
-        return authenticationConfiguration.getAuthenticationManager();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+            return authenticationConfiguration.getAuthenticationManager();
     }
-
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+        }
     }
-}

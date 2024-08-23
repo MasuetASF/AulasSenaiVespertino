@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Service;
 
 import com.autenticacao.appautentic.DTOs.CriarUsuarioDTO;
@@ -16,12 +15,11 @@ import com.autenticacao.appautentic.Model.RuleModel;
 import com.autenticacao.appautentic.Model.UsuarioModel;
 import com.autenticacao.appautentic.Repository.UsuarioRepository;
 import com.autenticacao.appautentic.Security.Authentic.JwtTokenService;
-import com.autenticacao.appautentic.Security.Config.SecurityConfig;
+import com.autenticacao.appautentic.Security.Config.SegurancaConfig;
 import com.autenticacao.appautentic.Security.Details.UsuarioDetailsImpl;
 
 @Service
 public class UsuarioService {
-
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -32,7 +30,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private SecurityConfig securityConfig;
+    private SegurancaConfig segurancaConfig;
 
     public RecoveryJwtTokenDTO authenticateUsuario(UsuarioLoginDTO usuarioLoginDTO){
 
@@ -46,14 +44,14 @@ public class UsuarioService {
 
     }
 
-
     public void CriarUsuario(CriarUsuarioDTO criarUsuarioDTO){
         UsuarioModel usuarioModel = UsuarioModel.builder()
-                                    .email(criarUsuarioDTO.email())
-                                    .password(securityConfig.passwordEncoder().encode(criarUsuarioDTO.password()))
-                                    .rules(List.of(RuleModel.builder().tipo(criarUsuarioDTO.rules()).build()))
-                                    .build();
-                                    
-                                    usuarioRepository.save(usuarioModel);
-        }
+            .email(criarUsuarioDTO.email())
+            .password(segurancaConfig.passwordEncoder().encode(criarUsuarioDTO.password()))
+            .rules(List.of(RuleModel.builder().tipo(criarUsuarioDTO.rules()).build()))
+            .build();
+
+            usuarioRepository.save(usuarioModel);
+
+    }
 }

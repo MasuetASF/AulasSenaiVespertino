@@ -23,7 +23,7 @@ public class UsuarioDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
-        return user.getRules().stream().map(rules -> new SimpleGrantedAuthority(rules.getTipo().tipo())).collect(Collectors.toList());
+        return user.getRules().stream().map(rules -> new SimpleGrantedAuthority(rules.getTipo().toString())).collect(Collectors.toList());
     }
 
     @Override 
